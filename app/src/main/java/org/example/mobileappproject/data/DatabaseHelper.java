@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String dbName = "mainDB";
     private static final String staffTable = "tb_staff";
+    private static final String scheduleTable = "tb_schedule";
     private static final int DATABASE_VERSION =1;
 
     private SQLiteDatabase db;
@@ -30,14 +31,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "name text not null,"
                 + "wage integer)";
 
-//        String scheduleSql = "CREATE TABLE if not exists tb_schedule ("
-//                + "_id integer primary key autoincrement,"
-//                + "staff_id not null,"
-//                + "wage"
-//                +"date)";
+        String scheduleSql = "CREATE TABLE if not exists " + scheduleTable + "("
+                + "_id integer primary key autoincrement,"
+                + "name text not null,"
+                + "start_hour integer,"
+                + "start_min integer,"
+                + "end_hour integer,"
+                + "end_min integer,"
+                + "year integer,"
+                + "month integer,"
+                + "day integer, "
+                + "wage integer)";
 
         db.execSQL(staffSql);
-//        db.execSQL(scheduleSql);
+        db.execSQL(scheduleSql);
     }
 
     @Override
@@ -45,14 +52,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //버전이 변경될 때마다 호출되는 함수
         if(newVersion == DATABASE_VERSION){
             db.execSQL("drop table "+staffTable);
-//            db.execSQL("drop table tb_schedule");
+            db.execSQL("drop table "+scheduleTable);
             onCreate(db);
         }
     }
 
     // 직원 추가
     public void insertStaff(Staff staff){
-        Log.d("test5", "삽입되었다. ");
         String sql = "INSERT INTO "+staffTable+" VALUES(NULL, '"+staff.staff_id+"', "+staff.wage+");";
         db.execSQL(sql);
     }
@@ -74,4 +80,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         results.close();
         return list;
     }
+
+
+    // 일정 추가
+    public void insertSchedule(Schedule schedule){
+        String sql = "INSERT INTO "+scheduleTable+" VALUES(NULL, '"+schedule.staff_id+"', "+schedule.start_time_hour+", "+schedule.start_time_min+", "+schedule.end_time_hour+", "+schedule.end_time_min+", "+schedule.year+", "+schedule.month+","+schedule.day+","+schedule.wage+");";
+        db.execSQL(sql);
+    }
+
+
 }

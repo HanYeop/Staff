@@ -22,4 +22,8 @@
     <style name="Theme.MobileAppProject.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.MobileAppProject.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Theme.CustomDialog" parent="Theme.MaterialComponents.DayNight.Dialog">
+
+    </style>
 </resources>

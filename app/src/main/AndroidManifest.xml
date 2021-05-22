@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileAppProject">
-        <activity android:name=".activity.ListActivity"></activity>
+        <activity android:name=".dialog.ScheduleListActivity"
+            android:theme="@style/Theme.CustomDialog"></activity>
+        <activity android:name=".dialog.ScheduleAddActivity"
+            android:theme="@style/Theme.CustomDialog"/>
+        <activity android:name=".activity.ListActivity" />
         <activity android:name=".activity.registerActivity" />
         <activity android:name=".activity.caculateActivity" />
         <activity android:name=".activity.MainActivity" />

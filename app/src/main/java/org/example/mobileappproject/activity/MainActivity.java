@@ -15,12 +15,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import org.example.mobileappproject.R;
+import org.example.mobileappproject.dialog.ScheduleAddActivity;
+import org.example.mobileappproject.dialog.ScheduleListActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "CalendarActivity";
     private CalendarView mCalendarView;
-    TextView tv_result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,22 +38,20 @@ public class MainActivity extends AppCompatActivity {
                 AlertDialog.Builder ad = new AlertDialog.Builder(MainActivity.this); //, android.R.style.Theme_DeviceDefault_Light_Dialog);
                 ad.setIcon(R.mipmap.ic_launcher);
                 ad.setTitle(date);
-                ad.setMessage("근무 시간");
-                final EditText et = new EditText(MainActivity.this);
-                ad.setView(et);
 
-                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                ad.setPositiveButton("근무시간 확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String result = et.getText().toString();
-                        tv_result.setText(result);
                         dialog.dismiss();
+                        Intent intent = new Intent(getApplicationContext(), ScheduleListActivity.class);
+                        startActivity(intent);
                     }
                 });
-                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                ad.setNegativeButton("근무 추가", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String result = et.getText().toString();
+                        Intent intent = new Intent(getApplicationContext(), ScheduleAddActivity.class);
+                        startActivity(intent);
                         dialog.dismiss();
                     }
                 });
