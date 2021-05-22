@@ -1,9 +1,12 @@
-package org.example.mobileappproject;
+package org.example.mobileappproject.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import org.example.mobileappproject.R;
+import org.example.mobileappproject.activity.MainActivity;
 
 public class splashActivity extends AppCompatActivity {
 

@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileAppProject">
-        <activity android:name=".registerActivity" />
-        <activity android:name=".caculateActivity" />
-        <activity android:name=".MainActivity"/>
-            <activity android:name=".splashActivity">
+        <activity android:name=".activity.ListActivity"></activity>
+        <activity android:name=".activity.registerActivity" />
+        <activity android:name=".activity.caculateActivity" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.splashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

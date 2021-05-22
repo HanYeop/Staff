@@ -1,29 +1,25 @@
-package org.example.mobileappproject;
+package org.example.mobileappproject.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.text.BreakIterator;
+import org.example.mobileappproject.R;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "CalendarActivity";
     private CalendarView mCalendarView;
-    Dialog dilaog;
     TextView tv_result;
 
     @Override
@@ -65,9 +61,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        Button btnRegister = (Button) findViewById(R.id.btnRegister); //알바생 등록을 위한 버튼
+        // 알바생 등록을 위한 버튼
+        Button btnRegister = (Button) findViewById(R.id.btnRegister);
         btnRegister.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), registerActivity.class);
@@ -75,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button btnCaculator = (Button) findViewById(R.id.btnCaculator); //급여 계산을 위한 버튼
+        // 급여 계산을 위한 버튼
+        Button btnCaculator = (Button) findViewById(R.id.btnCaculator);
         btnCaculator.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), caculateActivity.class);
@@ -85,6 +81,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // 리스트 창을 위한 버튼
+        Button btnList = (Button) findViewById(R.id.btnList);
+        btnList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ListActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
