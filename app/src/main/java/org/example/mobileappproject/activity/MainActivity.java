@@ -4,17 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import org.example.mobileappproject.R;
+import org.example.mobileappproject.dialog.MonthWageActivity;
 import org.example.mobileappproject.dialog.ScheduleAddActivity;
 import org.example.mobileappproject.dialog.ScheduleListActivity;
 
@@ -83,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         btnCaculator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), caculateActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MonthWageActivity.class);
                 startActivity(intent);
             }
         });

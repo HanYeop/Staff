@@ -83,7 +83,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return list;
     }
 
-    // 직원 월급 조회
+    // 직원 시급 조회
     public int searchStaff(String staffName){
         int wage = 0;
 
@@ -132,5 +132,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return list;
     }
 
+    // 직원 월 근로자 조회
+    public ArrayList<MonthWage> monthTime(int year, int month){
+        String sql = "SELECT _id, name, wage, SUM(time) FROM "+scheduleTable+" WHERE year = "+year+" AND month = "+month+" GROUP BY name";
 
+        ArrayList<MonthWage> list = new ArrayList<>();
+
+        Cursor results = db.rawQuery(sql,null);
+        results.moveToFirst();
+
+        while(!results.isAfterLast()){
+            MonthWage monthWage = new MonthWage(results.getInt(0),results.getString(1),results.getInt(2),results.getInt(3));
+            list.add(monthWage);
+            results.moveToNext();
+        }
+        results.close();
+        return list;
+    }
 }
