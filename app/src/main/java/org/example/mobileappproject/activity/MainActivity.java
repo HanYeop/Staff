@@ -44,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                         Intent intent = new Intent(getApplicationContext(), ScheduleListActivity.class);
+                        intent.putExtra("date",date);
+                        intent.putExtra("year",year);
+                        intent.putExtra("month",month+1);
+                        intent.putExtra("day",dayOfMonth);
                         startActivity(intent);
                     }
                 });
@@ -53,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
                         dialog.dismiss();
                         Intent intent = new Intent(getApplicationContext(), ScheduleAddActivity.class);
                         intent.putExtra("date",date);
+                        intent.putExtra("year",year);
+                        intent.putExtra("month",month+1);
+                        intent.putExtra("day",dayOfMonth);
                         startActivity(intent);
                     }
                 });

@@ -44,7 +44,7 @@ public class registerActivity extends AppCompatActivity implements View.OnClickL
         String wage =wageView.getText().toString();
 
         // 실패
-        if(name==null || name.equals("")){
+        if(name==null || name.equals("") || wage==null || wage.equals("")){
             Toast t = Toast.makeText(this, R.string.add_name_null, Toast.LENGTH_SHORT );
             t.show();
         }

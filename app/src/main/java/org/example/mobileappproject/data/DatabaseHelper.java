@@ -40,8 +40,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "end_min integer,"
                 + "year integer,"
                 + "month integer,"
-                + "day integer, "
-                + "wage integer)";
+                + "day integer,"
+                + "wage integer,"
+                + "time integer)";
+
 
         db.execSQL(staffSql);
         db.execSQL(scheduleSql);
@@ -81,11 +83,53 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return list;
     }
 
+    // 직원 월급 조회
+    public int searchStaff(String staffName){
+        int wage = 0;
+
+        String sql = "SELECT wage FROM "+staffTable+" WHERE name = '"+staffName+"'";
+
+        Cursor results = db.rawQuery(sql,null);
+
+        results.moveToFirst();
+
+        if(results.getCount() == 0){
+            results.close();
+            return wage;
+        }
+        else {
+            wage = results.getInt(0);
+        }
+
+        results.close();
+        return wage;
+    }
+
 
     // 일정 추가
     public void insertSchedule(Schedule schedule){
-        String sql = "INSERT INTO "+scheduleTable+" VALUES(NULL, '"+schedule.staff_id+"', "+schedule.start_time_hour+", "+schedule.start_time_min+", "+schedule.end_time_hour+", "+schedule.end_time_min+", "+schedule.year+", "+schedule.month+","+schedule.day+","+schedule.wage+","+schedule.time+");";
+        String sql = "INSERT INTO "+scheduleTable+" VALUES(NULL, '"+schedule.staff_id+"', "+schedule.start_time_hour+", "+schedule.start_time_min+", "+schedule.end_time_hour+", "+schedule.end_time_min+", "+schedule.year+", "+schedule.month+", "+schedule.day+", "+schedule.wage+", "+schedule.time+");";
         db.execSQL(sql);
+    }
+
+    // 그 날의 일정 조회
+    public ArrayList<Schedule> searchSchedule(int year, int month, int day){
+        String sql = "SELECT * FROM "+scheduleTable+" WHERE year = "+year+" AND month = "+month+" AND day = "+day+" ORDER BY start_hour ASC, start_min ASC";
+
+        ArrayList<Schedule> list = new ArrayList<>();
+
+        Cursor results = db.rawQuery(sql,null);
+        results.moveToFirst();
+
+        while(!results.isAfterLast()){
+            Schedule schedule = new Schedule(results.getInt(0),results.getString(1),results.getInt(2),results.getInt(3)
+                    ,results.getInt(4),results.getInt(5),results.getInt(6),results.getInt(7),results.getInt(8),results.getInt(9),results.getInt(10));
+            list.add(schedule);
+            results.moveToNext();
+        }
+
+        results.close();
+        return list;
     }
 
 

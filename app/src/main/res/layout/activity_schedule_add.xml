@@ -38,6 +38,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="27dp"
         android:ems="5"
+        android:maxLength="2"
         android:gravity="center"
         android:hint="시작시간(시)"
         android:inputType="number"
@@ -51,6 +52,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:ems="5"
+        android:maxLength="2"
         android:gravity="center"
         android:hint="종료시간(시)"
         android:inputType="number"
@@ -64,6 +66,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="27dp"
         android:ems="5"
+        android:maxLength="2"
         android:gravity="center"
         android:hint="시작시간(분)"
         android:inputType="number"
@@ -71,12 +74,13 @@
         app:layout_constraintTop_toBottomOf="@+id/staffNameEditView" />
 
     <EditText
-        android:id="@+id/startMinEditView2"
+        android:id="@+id/endMinEditView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="20dp"
         android:ems="5"
+        android:maxLength="2"
         android:gravity="center"
         android:hint="종료시간(분)"
         android:inputType="number"
