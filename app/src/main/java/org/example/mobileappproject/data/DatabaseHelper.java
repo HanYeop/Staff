@@ -84,7 +84,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // 일정 추가
     public void insertSchedule(Schedule schedule){
-        String sql = "INSERT INTO "+scheduleTable+" VALUES(NULL, '"+schedule.staff_id+"', "+schedule.start_time_hour+", "+schedule.start_time_min+", "+schedule.end_time_hour+", "+schedule.end_time_min+", "+schedule.year+", "+schedule.month+","+schedule.day+","+schedule.wage+");";
+        String sql = "INSERT INTO "+scheduleTable+" VALUES(NULL, '"+schedule.staff_id+"', "+schedule.start_time_hour+", "+schedule.start_time_min+", "+schedule.end_time_hour+", "+schedule.end_time_min+", "+schedule.year+", "+schedule.month+","+schedule.day+","+schedule.wage+","+schedule.time+");";
         db.execSQL(sql);
     }
 

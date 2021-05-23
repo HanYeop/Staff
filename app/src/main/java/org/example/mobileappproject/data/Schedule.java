@@ -13,9 +13,10 @@ public class Schedule implements Serializable {
     int month;
     int day;
     int wage;
+    int time;
 
     public Schedule(int _id, String staff_id, int start_time_hour, int start_time_min,
-                    int end_time_hour, int end_time_min, int year, int month, int day, int wage){
+                    int end_time_hour, int end_time_min, int year, int month, int day, int wage, int time){
         this._id = _id;
         this.staff_id = staff_id;
         this.start_time_hour = start_time_hour;
@@ -26,10 +27,11 @@ public class Schedule implements Serializable {
         this.month = month;
         this.day = day;
         this.wage = wage;
+        this.time = time;
     }
 
     public Schedule(String staff_id, int start_time_hour, int start_time_min,
-                    int end_time_hour, int end_time_min, int year, int month, int day, int wage){
+                    int end_time_hour, int end_time_min, int year, int month, int day, int wage, int time){
         this.staff_id = staff_id;
         this.start_time_hour = start_time_hour;
         this.start_time_min = start_time_min;
@@ -39,6 +41,7 @@ public class Schedule implements Serializable {
         this.month = month;
         this.day = day;
         this.wage = wage;
+        this.time = time;
     }
 
     public int get_id() {
@@ -119,5 +122,13 @@ public class Schedule implements Serializable {
 
     public void setWage(int wage) {
         this.wage = wage;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
     }
 }

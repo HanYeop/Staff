@@ -50,9 +50,10 @@ public class MainActivity extends AppCompatActivity {
                 ad.setNegativeButton("근무 추가", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(getApplicationContext(), ScheduleAddActivity.class);
-                        startActivity(intent);
                         dialog.dismiss();
+                        Intent intent = new Intent(getApplicationContext(), ScheduleAddActivity.class);
+                        intent.putExtra("date",date);
+                        startActivity(intent);
                     }
                 });
                 ad.show();

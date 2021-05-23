@@ -2,39 +2,96 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="300dp"
     tools:context=".dialog.ScheduleAddActivity">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/dateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="69dp"
-        tools:layout_editor_absoluteY="70dp" />
+        android:layout_marginTop="16dp"
+        android:text="오늘 날짜"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView4"
+    <EditText
+        android:id="@+id/staffNameEditView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="156dp" />
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="직원명"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView5"
+    <EditText
+        android:id="@+id/startHourEditView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="234dp"
-        tools:layout_editor_absoluteY="127dp" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="27dp"
+        android:ems="5"
+        android:gravity="center"
+        android:hint="시작시간(시)"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/staffNameEditView" />
 
-    <TextView
-        android:id="@+id/textView6"
+    <EditText
+        android:id="@+id/endHourEditView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="175dp" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:ems="5"
+        android:gravity="center"
+        android:hint="종료시간(시)"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startHourEditView" />
+
+    <EditText
+        android:id="@+id/startMinEditView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="27dp"
+        android:ems="5"
+        android:gravity="center"
+        android:hint="시작시간(분)"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/startHourEditView"
+        app:layout_constraintTop_toBottomOf="@+id/staffNameEditView" />
+
+    <EditText
+        android:id="@+id/startMinEditView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:ems="5"
+        android:gravity="center"
+        android:hint="종료시간(분)"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/endHourEditView"
+        app:layout_constraintTop_toBottomOf="@+id/startMinEditView" />
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="등록"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
